@@ -8,12 +8,9 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
-      <th>Types</th>
-      <th>Metadata</th>
-      <th>Archived</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>T</th> <!-- Types -->
+      <th>M</th> <!-- Metadata -->
+      <th>A</th> <!-- Archived? -->
     </tr>
   </thead>
 
@@ -25,9 +22,9 @@
         <td><%= note.types %></td>
         <td><%= note.metadata %></td>
         <td><%= note.archived %></td>
-        <td><%= link_to 'Show', note %></td>
+        <td><%= link_to 'Open', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
-        <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
