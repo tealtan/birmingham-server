@@ -1,14 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @note.title %>
-</p>
+<%= link_to 'Edit', edit_note_path(@note) %> | <%= link_to 'All Notes', notes_path %>
+
+<hr>
+
+<h1><%= @note.title %></h1>
 
 <p>
-  <strong>Content:</strong>
   <%= @note.content %>
 </p>
+
+<hr>
 
 <p>
   <strong>Types:</strong>
@@ -24,6 +26,3 @@
   <strong>Archived:</strong>
   <%= @note.archived %>
 </p>
-
-<%= link_to 'Edit', edit_note_path(@note) %> |
-<%= link_to 'Back', notes_path %>

@@ -1,6 +1,23 @@
-<h1>Editing note</h1>
+<!-- <%= render 'form' %> -->
 
-<%= render 'form' %>
+<%= form_for @note, url: {action: "update"}, html: {class: "note_form"} do |f| %>
 
-<%= link_to 'Show', @note %> |
-<%= link_to 'Back', notes_path %>
+  <%= f.submit "Save" %> or <%= link_to 'Cancel', notes_path %>
+
+  <hr/>
+
+  <%= label_tag(:types, "Types") %>
+  <%= f.text_field :types %> <br/>
+
+  <%= label_tag(:metadata, "Metadata") %>
+  <%= f.text_field :metadata %> <br/>
+
+  <%= label_tag(:archived, "Archived?") %>
+  <%= check_box_tag(:archived) %> <br/>
+
+  <hr/>
+
+  <%= f.text_field :title, :placeholder => "Title", class: "note_title" %> <br/>
+  <%= f.text_area :content, :placeholder => "Content", class: "note_content" %> <br/>
+
+<% end %>
