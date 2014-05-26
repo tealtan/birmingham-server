@@ -6,9 +6,9 @@
 
 <h1><%= @note.title %></h1>
 
-<p>
-  <%= @note.content %>
-</p>
+<div class="note-content">
+  <%= raw(markdown(@note.content)) %>
+</div>
 
 <hr>
 

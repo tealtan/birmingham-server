@@ -14,6 +14,7 @@ end
 gem 'pg', '0.15.1'
 gem 'sass-rails', '~> 4.0.0'
 gem 'autoprefixer-rails'
+gem 'kramdown'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
