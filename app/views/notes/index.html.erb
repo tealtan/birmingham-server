@@ -8,8 +8,8 @@
     <tr>
       <th>Title</th>
       <th>Content</th>
-      <th>T</th> <!-- Types -->
-      <th>M</th> <!-- Metadata -->
+      <th>C</th> <!-- Category  -->
+      <th>M</th> <!-- Metadata  -->
       <th>A</th> <!-- Archived? -->
     </tr>
   </thead>
@@ -19,7 +19,7 @@
       <tr>
         <td><%= note.title %></td>
         <td><%= note.content %></td>
-        <td><%= note.types %></td>
+        <td><%= note.category %></td>
         <td><%= note.metadata %></td>
         <td><%= note.archived %></td>
         <td><%= link_to 'Open', note %></td>

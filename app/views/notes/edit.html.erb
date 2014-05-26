@@ -6,14 +6,39 @@
 
   <hr/>
 
-  <%= label_tag(:types, "Types") %>
-  <%= f.text_field :types %> <br/>
+  <%= f.text_field :category %> <br/>
 
   <%= label_tag(:metadata, "Metadata") %>
   <%= f.text_field :metadata %> <br/>
 
   <%= label_tag(:archived, "Archived?") %>
   <%= check_box_tag(:archived) %> <br/>
+
+  <hr/>
+
+  <%= label_tag(:category, "Category") %>
+
+  <select id="select_note_category" name="note-category">
+    <option value="text">Text</option>
+    <option value="question">Question</option>
+    <option value="quote">Quote</option>
+    <option>---------</option>
+    <option value="place">Place</option>
+    <option value="url">URL</option>
+    <option value="file">File</option>
+    <option>---------</option>
+    <option value="book">Book</option>
+    <option value="movie">Movie</option>
+    <option value="tv-show">TV Show</option>
+    <option value="music">Music</option>
+    <option>---------</option>
+    <option value="recipe">Recipe</option>
+    <option value="image-note">Image Note</option>
+    <option>---------</option>
+    <option value="other">Other</option>
+  </select>
+
+  <input id="meta-type-misc" name="misc" type="text" value="">
 
   <hr/>
 
