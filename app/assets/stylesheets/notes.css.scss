@@ -2,62 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.meta-types {
-
-  .toggle {
-    display: inline-block;
-    width: 90px;
-    height: 30px;
-    border-radius: 15px;
-    border: 1px solid;
-    margin: 0 15px 15px 0;
-    padding: 5px 0;
-
-    color: #fff;
-    text-align: center;
-    font-family: 'Lucida Grande', helvetica, arial, sans-serif;
-    font-size: 11px;
-    font-weight: bold;
-    text-transform: uppercase;
-
-    // Fixes Webkit text antialiasing bug on hover, see http://stackoverflow.com/a/21136111
-    -webkit-font-smoothing: subpixel-antialiased;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    &.meta-type-idea,
-    &.meta-type-question,
-    &.meta-type-quote {
-      color: #56C7A4;
-      border-color: #56C7A4;
-    }
-
-    &.meta-type-place,
-    &.meta-type-url,
-    &.meta-type-file {
-      color: #F85C65;
-      border-color: #F85C65;
-    }
-
-    &.meta-type-book,
-    &.meta-type-movie,
-    &.meta-type-tvshow,
-    &.meta-type-music {
-      color: #65CBED;
-      border-color: #65CBED;
-    }
-
-    &.meta-type-recipe,
-    &.meta-type-imagenote {
-      color: #B391C3;
-      border-color: #B391C3;
-    }
-  }
-
-}
-
 .note_form {
 
   .note_title {
