@@ -23,14 +23,23 @@ $(document).on 'page:change', ->
     newCategory = $('#select_note_category').val()
     $('#note_category').val(newCategory) unless newCategory is 'other'
 
+  setVisibilityofMetadataFields = ->
+    selectedCategory = $('#select_note_category').val()
+    metadataSelector = '.meta-' + selectedCategory + '-fields'
+    $('.meta-fieldgroup').addClass('hide')
+    $(metadataSelector).removeClass('hide')
+    return
+
   # Triggers
   $('#select_note_category').change ->
     setVisibilityOfCategoryInput()
     updateCategory()
+    setVisibilityofMetadataFields()
     if $('#select_note_category').val() is 'other'
       $('#note_category').val('')
 
   # Init
   initializeCategory()
   setVisibilityOfCategoryInput()
+  setVisibilityofMetadataFields()
   return

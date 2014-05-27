@@ -13,4 +13,16 @@
     min-height: 300px;
   }
 
+  .meta-fieldgroup {
+    // Temp
+    padding-top: 15px;
+    background-color: #eee;
+  }
+
+  #note_recipe_ingredients,
+  #note_recipe_steps {
+    width: 100%;
+    min-height: 250px;
+  }
+
 }

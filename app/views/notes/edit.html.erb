@@ -6,9 +6,6 @@
 
   <hr/>
 
-  <%= label_tag(:metadata, "Metadata") %>
-  <%= f.text_field :metadata %> <br/>
-
   <%= label_tag(:archived, "Archived?") %>
   <%= f.check_box(:archived) %> <br/>
 
@@ -37,6 +34,131 @@
   </select>
 
   <%= f.text_field :category %>
+
+  <hr/>
+
+  <div class="metadata-section">
+    <%= label_tag(:metadata, "Metadata") %>
+    <%= f.text_field :metadata %> <br/>
+
+    <div class="meta-fieldgroup meta-question-fields">
+      <%= label_tag(:question, "Question") %>
+      <%= f.text_field :question %>
+      <br/>
+      <%= label_tag(:answered, "Answered?") %>
+      <%= f.check_box :answered, {}, "1", "" %>
+    </div>
+
+    <div class="meta-fieldgroup meta-quote-fields">
+      <%= label_tag(:quote, "Quote") %>
+      <%= f.text_field :quote %>
+      <br/>
+      <%= label_tag(:quote_source, "Source") %>
+      <%= f.text_field :quote_source %>
+    </div>
+
+    <div class="meta-fieldgroup meta-place-fields">
+      <%= label_tag(:place, "Place") %>
+      <%= f.text_field :place %>
+      <br/>
+      <%= label_tag(:place_latitude, "Latitude") %>
+      <%= f.text_field :place_latitude %>
+      <br/>
+      <%= label_tag(:place_longitude, "Longitude") %>
+      <%= f.text_field :place_longitude %>
+    </div>
+
+    <div class="meta-fieldgroup meta-url-fields">
+      <%= label_tag(:url, "URL") %>
+      <%= f.text_field :url %>
+      <br/>
+      <%= label_tag(:url_tags, "Tags") %>
+      <%= f.text_field :url_tags %>
+    </div>
+
+    <div class="meta-fieldgroup meta-file-fields">
+      <%= label_tag(:file, "File") %>
+      <%= f.text_field :file %>
+      <br/>
+      <%= label_tag(:file_type, "Type") %>
+      <%= f.text_field :file_type %>
+    </div>
+
+    <div class="meta-fieldgroup meta-book-fields">
+      <%= label_tag(:book_title, "Title") %>
+      <%= f.text_field :book_title %>
+      <br/>
+      <%= label_tag(:book_author, "Author") %>
+      <%= f.text_field :book_author %>
+      <br/>
+      <%= label_tag(:book_pubdate, "Published on") %>
+      <%= f.text_field :book_pubdate %>
+    </div>
+
+    <div class="meta-fieldgroup meta-movie-fields">
+      <%= label_tag(:movie_title, "Movie") %>
+      <%= f.text_field :movie_title %>
+      <br/>
+      <%= label_tag(:movie_director, "Director") %>
+      <%= f.text_field :movie_director %>
+      <br/>
+      <%= label_tag(:movie_releasedate, "Released on") %>
+      <%= f.text_field :movie_releasedate %>
+    </div>
+
+    <div class="meta-fieldgroup meta-tv-show-fields">
+      <%= label_tag(:tvshow_title, "Title") %>
+      <%= f.text_field :tvshow_title %>
+      <br/>
+      <%= label_tag(:tvshow_creator, "Creator") %>
+      <%= f.text_field :tvshow_creator %>
+      <br/>
+      <%= label_tag(:tvshow_startdate, "Started on") %>
+      <%= f.text_field :tvshow_startdate %>
+      <br/>
+      <%= label_tag(:tvshow_season, "Season") %>
+      <%= f.text_field :tvshow_season %>
+      <br/>
+      <%= label_tag(:tvshow_episode, "Episode") %>
+      <%= f.text_field :tvshow_episode %>
+    </div>
+
+    <div class="meta-fieldgroup meta-music-fields">
+      <%= label_tag(:music_artist, "Artist") %>
+      <%= f.text_field :music_artist %>
+      <br/>
+      <%= label_tag(:music_album, "Album") %>
+      <%= f.text_field :music_album %>
+      <br/>
+      <%= label_tag(:music_track, "Track") %>
+      <%= f.text_field :music_track %>
+      <br/>
+      <%= label_tag(:music_releasedate, "Released on") %>
+      <%= f.text_field :music_releasedate %>
+    </div>
+
+    <div class="meta-fieldgroup meta-recipe-fields">
+      <%= label_tag(:recipe, "Recipe") %>
+      <%= f.text_field :recipe %>
+      <br/>
+      <%= label_tag(:recipe_source, "By") %>
+      <%= f.text_field :recipe_source %>
+      <br/>
+      <%= f.text_area :recipe_ingredients, :placeholder => "Ingredients" %> <br/>
+      <%= f.text_area :recipe_steps, :placeholder => "Steps" %> <br/>
+    </div>
+
+    <div class="meta-fieldgroup meta-image-note-fields">
+      <%= label_tag(:imagenote, "Image") %>
+      <%= f.text_field :imagenote %>
+      <br/>
+      <%= label_tag(:imagenote_x, "X") %>
+      <%= f.text_field :imagenote_x %>
+      <br/>
+      <%= label_tag(:imagenote_y, "Y") %>
+      <%= f.text_field :imagenote_y %>
+    </div>
+  </div>
 
   <hr/>
 
