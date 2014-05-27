@@ -6,8 +6,6 @@
 
   <hr/>
 
-  <%= f.text_field :category %> <br/>
-
   <%= label_tag(:metadata, "Metadata") %>
   <%= f.text_field :metadata %> <br/>
 
@@ -38,7 +36,7 @@
     <option value="other">Other</option>
   </select>
 
-  <input id="meta-type-misc" class="hide" name="misc" type="text" value="">
+  <%= f.text_field :category %>
 
   <hr/>
 

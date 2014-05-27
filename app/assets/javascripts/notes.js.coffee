@@ -11,29 +11,24 @@ $(document).on 'page:change', ->
       matchOption.prop('selected', true)
     else
       $('#select_note_category option[value="other"]').prop('selected', true)
-      $('#meta-type-misc').val(initialValue)
     return
 
   setVisibilityOfCategoryInput = ->
     if $('#select_note_category').val() isnt 'other'
-      $('#meta-type-misc').addClass('hide')
+      $('#note_category').addClass('hide')
     else
-      $('#meta-type-misc').removeClass('hide')
+      $('#note_category').removeClass('hide')
 
   updateCategory = ->
     newCategory = $('#select_note_category').val()
-    if newCategory isnt 'other'
-      $('#note_category').val(newCategory)
-    else
-      $('#note_category').val($('#meta-type-misc').val())
+    $('#note_category').val(newCategory) unless newCategory is 'other'
 
   # Triggers
   $('#select_note_category').change ->
     setVisibilityOfCategoryInput()
     updateCategory()
-
-  $('#meta-type-misc').bind 'keyup', ->
-    updateCategory()
+    if $('#select_note_category').val() is 'other'
+      $('#note_category').val('')
 
   # Init
   initializeCategory()
