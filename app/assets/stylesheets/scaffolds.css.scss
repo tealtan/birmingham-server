@@ -41,6 +41,7 @@ hr {
 /* Forms */
 
 label {
+  clear: both;
   display: inline-block;
   margin-right: 15px;
   min-width: 75px;
@@ -51,13 +52,21 @@ label {
 }
 
 input:not([type=submit]):not([type=file]), textarea {
-  margin: 0 0 15px 0;
+  margin: 15px 0 0 0;
   padding: 10px;
   font-family: 'Lucida Grande', helvetica, arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
 
   border: 1px solid #ccc;
+
+  &:first-of-type {
+    margin-top: 0px;
+  }
+}
+
+br + textarea {
+  margin-top: 15px;
 }
 
 input:not([type=submit]):not([type=file]) {
