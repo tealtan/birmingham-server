@@ -1,6 +1,6 @@
 <!-- <%= render 'form' %> -->
 
-<%= form_for @note, url: {action: "update"}, html: {class: "note_form"} do |f| %>
+<%= form_for @note, url: {action: "update"}, html: {class: "note_form", :multipart => true} do |f| %>
 
   <%= f.submit "Save" %> or <%= link_to 'Cancel', notes_path %>
 
@@ -77,11 +77,14 @@
     </div>
 
     <div class="meta-fieldgroup meta-file-fields">
-      <%= label_tag(:file, "File") %>
-      <%= f.text_field :file %>
+      <%= label_tag("File") %>
+      <%= link_to @note.attachment.original_filename, @note.attachment.url %>
       <br/>
-      <%= label_tag(:file_type, "Type") %>
-      <%= f.text_field :file_type %>
+      <%= label_tag("Type") %>
+      <%= MIME::Types[@note.attachment.content_type].first.extensions.first %>
+      <br/>
+      <%= label_tag("Size") %>
+      <%= number_to_human_size(@note.attachment.size).downcase %>
     </div>
 
     <div class="meta-fieldgroup meta-book-fields">

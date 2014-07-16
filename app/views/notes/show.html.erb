@@ -26,3 +26,10 @@
   <strong>Archived:</strong>
   <%= @note.archived %>
 </p>
+
+<p>
+  <strong>Attachment:</strong>
+  <%= link_to @note.file_name, @note.file_url %>
+  <%= @note.file_type %>
+  <%= @note.file_size %>
+</p>
