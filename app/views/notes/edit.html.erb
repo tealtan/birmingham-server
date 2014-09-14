@@ -77,14 +77,19 @@
     </div>
 
     <div class="meta-fieldgroup meta-file-fields">
-      <%= label_tag("File") %>
-      <%= link_to @note.attachment.original_filename, @note.attachment.url %>
-      <br/>
-      <%= label_tag("Type") %>
-      <%= MIME::Types[@note.attachment.content_type].first.extensions.first %>
-      <br/>
-      <%= label_tag("Size") %>
-      <%= number_to_human_size(@note.attachment.size).downcase %>
+      <% if !(@note.file_url) %>
+        <%= label_tag(:attachment, "File") %>
+        <%= f.file_field :attachment %>
+      <% else %>
+        <%= label_tag("File") %>
+        <%= link_to @note.file_name, @note.file_url %>
+        <br/>
+        <%= label_tag("Type") %>
+        <%= @note.file_type %>
+        <br/>
+        <%= label_tag("Size") %>
+        <%= @note.file_size %>
+      <% end %>
     </div>
 
     <div class="meta-fieldgroup meta-book-fields">

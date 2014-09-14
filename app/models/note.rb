@@ -1,10 +1,19 @@
+require "open-uri"
+
 class Note < ActiveRecord::Base
   before_save :remove_empty
-  before_save :update_file_metadata
+  after_save :update_file_metadata
 
   # File attachments
-  has_attached_file :attachment
+  has_attached_file :attachment,
+    :path => "public/attachment/:id/:filename",
+    :url => "/attachment/:id/:basename.:extension"
   do_not_validate_attachment_file_type :attachment
+
+  # Get file from URL
+  def attachment_from_url(url)
+    self.attachment = open(url)
+  end
 
   # All the metadata keys in the hstore column
 
@@ -71,12 +80,16 @@ class Note < ActiveRecord::Base
     self.metadata = self.metadata.reject{ |k,v| v.blank? }
   end
 
-  # This puts attachment data into the metadata fields.
   include ActionView::Helpers::NumberHelper
   def update_file_metadata
-    self.file_url = self.attachment.url
-    self.file_name = self.attachment.original_filename
-    self.file_type = MIME::Types[self.attachment.content_type].first.extensions.first
-    self.file_size = number_to_human_size(self.attachment.size).downcase
+    # This puts attachment data into the metadata fields.
+    # Only update if user is adding or changing an attachment.
+    unless (self.attachment.original_filename.nil? || (self.file_url == self.attachment.url))
+      self.file_url = self.attachment.url
+      self.file_name = self.attachment.original_filename
+      self.file_type = MIME::Types[self.attachment.content_type].first.extensions.first
+      self.file_size = number_to_human_size(self.attachment.size).downcase
+      self.save
+    end
   end
 end
