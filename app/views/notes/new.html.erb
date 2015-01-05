@@ -1,6 +1,6 @@
 <!-- <%= render 'form' %> -->
 
-<%= form_for @note, url: {action: "create"}, html: {class: "note_form"} do |f| %>
+<%= form_for @note, url: {action: "create"}, html: {class: "note_form", :multipart => true} do |f| %>
 
   <%= f.submit "Save" %> or <%= link_to 'Cancel', notes_path %>
 
@@ -17,19 +17,19 @@
     <option value="text">Text</option>
     <option value="question">Question</option>
     <option value="quote">Quote</option>
-    <option>---------</option>
+    <option disabled>---------</option>
     <option value="place">Place</option>
     <option value="url">URL</option>
     <option value="file">File</option>
-    <option>---------</option>
+    <option disabled>---------</option>
     <option value="book">Book</option>
     <option value="movie">Movie</option>
     <option value="tv-show">TV Show</option>
     <option value="music">Music</option>
-    <option>---------</option>
+    <option disabled>---------</option>
     <option value="recipe">Recipe</option>
     <option value="image-note">Image Note</option>
-    <option>---------</option>
+    <option disabled>---------</option>
     <option value="other">Other</option>
   </select>
 
@@ -77,11 +77,11 @@
     </div>
 
     <div class="meta-fieldgroup meta-file-fields">
-      <%= label_tag(:file, "File") %>
-      <%= f.text_field :file %>
-      <br/>
-      <%= label_tag(:file_type, "Type") %>
-      <%= f.text_field :file_type %>
+      <%= label_tag(:attachment, "File") %>
+      <%= f.file_field :attachment %>
+      <!-- Add for direct URL upload
+      <%= f.text_field :attachment %>
+      -->
     </div>
 
     <div class="meta-fieldgroup meta-book-fields">

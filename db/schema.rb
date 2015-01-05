@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140526180527) do
+ActiveRecord::Schema.define(version: 20150104214236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,12 @@ ActiveRecord::Schema.define(version: 20140526180527) do
     t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",   default: "text"
+    t.string   "category",                default: "text"
+    t.string   "file_id"
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
   end
 
 end
