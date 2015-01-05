@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20150104214236) do
     t.boolean  "archived"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "category",                default: "text"
+    t.string   "category", default: "text"
     t.string   "file_id"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
