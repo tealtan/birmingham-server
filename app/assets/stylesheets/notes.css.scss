@@ -17,6 +17,29 @@
     padding-top: 15px;
   }
 
+  #note_attachment_container {
+    display: inline-block;
+  }
+
+  #note_attachment_button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: bottom;
+
+    #note_attachment {
+      position: absolute;
+      display: inline-block;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.01;
+      cursor: pointer;
+    }
+  }
+
   #note_recipe_ingredients,
   #note_recipe_steps {
     width: 100%;

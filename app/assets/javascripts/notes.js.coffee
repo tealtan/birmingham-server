@@ -8,9 +8,9 @@ $(document).on 'page:change', ->
     initialValue = $('#note_category').val()
     matchOption = $('#select_note_category option[value="'+initialValue+'"]')
     if matchOption.length > 0
-      matchOption.prop('selected', true)
+      matchOption.prop 'selected', true
     else
-      $('#select_note_category option[value="other"]').prop('selected', true)
+      $('#select_note_category option[value="other"]').prop 'selected', true
     return
 
   createFieldsOfCategory = (category) ->
@@ -38,9 +38,11 @@ $(document).on 'page:change', ->
     i = 0
     while i < formLength
       formName = formArray[i]
+
+      # Set formID        e.g. note[book_title] to note_book_title
       formID = formName.replace('[', '_').replace(']', '')
 
-      # Set formLabel
+      # Set formLabel     e.g. note[book_title] to title
       switch formID
         when 'note_answered'
           formLabel = 'answered?'
@@ -63,47 +65,51 @@ $(document).on 'page:change', ->
           formString += '<textarea id="' + formID + '" name="' + formName + '" placeholder="' + formLabel + '"></textarea> <br>'
         when 'note[file]' # Add exceptions for file fields
           formString += '<label for="attachment">File</label>
-                         <input id="note_attachment" name="note[attachment]" type="file">'
+                          <div id="note_attachment_container">
+                            <span id="note_attachment_button">
+                              <input id="note_attachment" name="note[attachment]" type="file">
+                              <a href="#">Add file from your computer</a>
+                            </span>
+                            or <a id="note_attachment_useLink" href="#">use a URL</a>
+                          </div>'
         else
           formString += '<label for="' + formID + '">' + formLabel + '</label>'
           formString += '<input id="' + formID + '" name="' + formName + '" type="text"> <br>'
       i++
 
     # 3. InnerHTML on the .insert element
-    $('.meta-fieldinsert').html(formString);
+    $(".meta-fieldinsert").html formString
     return
 
   setVisibilityOfCategoryInput = ->
-    if $('#select_note_category').val() isnt 'other'
-      $('#note_category').addClass('hide')
+    if $('#select_note_category').val() is 'other'
+      $('#note_category').removeClass 'hide'
     else
-      $('#note_category').removeClass('hide')
+      $('#note_category').addClass 'hide'
+    return
 
   updateCategory = ->
     newCategory = $('#select_note_category').val()
     $('#note_category').val(newCategory) unless newCategory is 'other'
+    return
 
-  # setVisibilityofMetadataFields = ->
-  #   selectedCategory = $('#select_note_category').val()
-  #   metadataSelector = '.meta-' + selectedCategory + '-fields'
-  #   $('.meta-fieldgroup').addClass('hide')
-  #   $(metadataSelector).removeClass('hide')
-  #   return
-
-  # Triggers
-  # $('#select_note_category').change ->
-  #   setVisibilityOfCategoryInput()
-  #   updateCategory()
-  #   setVisibilityofMetadataFields()
-  #   if $('#select_note_category').val() is 'other'
-  #     $('#note_category').val('')
+  changeFileUploadToDirectURL = (element) ->
+    $(element).replaceWith '<input id="note_attachment" name="note[attachment]" type="text" value="">'
+    return
 
   $('#select_note_category').change ->
     setVisibilityOfCategoryInput()
     updateCategory()
     createFieldsOfCategory($('#select_note_category').val())
+
+    # Special cases after category is changed
     if $('#select_note_category').val() is 'other'
       $('#note_category').val('')
+    if $('#select_note_category').val() is 'file'
+      $('#note_attachment_useLink').click ->
+        changeFileUploadToDirectURL '#note_attachment_container'
+
+    return
 
   # Init
   initializeCategory()
