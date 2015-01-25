@@ -57,9 +57,14 @@ input:not([type=submit]):not([type=file]), textarea {
   font-family: 'Lucida Grande', helvetica, arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-
   border: 1px solid #ccc;
 
+  hr + & {
+    margin-top: 0;
+  }
+}
+
+input:not([type=submit]):not([type=file]) {
   &:first-of-type {
     margin-top: 0px;
   }
@@ -67,6 +72,10 @@ input:not([type=submit]):not([type=file]), textarea {
 
 br + textarea {
   margin-top: 15px;
+
+  &::-webkit-input-placeholder {
+    text-transform: capitalize;
+  }
 }
 
 input:not([type=submit]):not([type=file]) {
