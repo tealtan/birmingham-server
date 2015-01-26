@@ -52,8 +52,8 @@
     </span>
 
     <span class="note_content">
-      <span class="note_title"><%= note.title %></span>
-      <%= note.content %>
+      <span class="note_title"><%= strip_tags(markdown(note.title)) %></span>
+      <%= strip_tags(markdown(note.content)) %>
     </span>
 
     <span class="note_category"><%= note.category %></span>
