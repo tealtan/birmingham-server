@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: rgba(242,242,242,1);
   color: #333;
   font-family: 'Lucida Grande', helvetica, arial, sans-serif;
   font-size: 13px;
@@ -62,7 +62,7 @@ input:not([type=submit]):not([type=file]), textarea {
   font-family: 'Lucida Grande', helvetica, arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  border: 1px solid #ccc;
+  border: 1px solid #eaeaea;
 
   hr + & {
     margin-top: 0;
