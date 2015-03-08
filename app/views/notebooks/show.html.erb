@@ -17,6 +17,79 @@
 
   <span class="description"><%= @notebook.description %></span>
 
-  <!-- List notes here -->
+  <hr/>
+
+  <%= link_to 'Add Note', new_note_path(:notebook_id => @notebook.id) %>
+  <!-- TODO: More actions here: move and delete notes -->
+  <!-- TODO: Toggle between structured and chronological views -->
+
+  <hr/>
+
+  <% @notebook.notes.each do |note| %>
+    <div class="note <%= note.category %>">
+      <span class="special">
+        <% case note.category %>
+        <% when "question" %>
+          <span class="voicy"><%= 'Q: ' + note.question %></span>
+
+        <% when "quote" %>
+          <span class="voicy">“<%= note.quote %>”</span>
+          <span> —<%= note.quote_source %></span>
+
+        <% when "place" %>
+          <span><%= note.place %></span>
+
+        <% when "url" %>
+          <span class="url"><%= note.url %></span>
+
+        <% when "file" %>
+          <span><%= link_to @note.file_name, @note.file_url %></span>
+          <span><%= note.file_type %></span>
+
+        <% when "book" %>
+          <span><%= note.book_title %></span>
+          <span><%= " · By " + note.book_author %></span>
+
+        <% when "movie" %>
+          <span><%= note.movie_title %></span>
+
+        <% when "tv-show" %>
+          <span><%= note.tvshow_title %></span>
+
+        <% when "music" %>
+          <span><%= note.music_artist %></span>
+          <span><%= " · " + note.music_album %></span>
+          <span><%= " · " + note.music_track %></span>
+
+        <% when "recipe" %>
+          <span class="prominent">“<%= note.recipe %>”</span>
+          <span><%= " · By " + note.recipe_source %></span>
+
+        <% when "image-note" %>
+          <span>“<%= note.imagenote %>”</span>
+
+        <% end %>
+      </span>
+
+      <span class="note_content">
+        <span class="note_title"><%= strip_tags(markdown(note.title)) %></span>
+        <%= strip_tags(markdown(note.content)) %>
+      </span>
+
+      <span class="note_category"><%= note.category %></span>
+
+      <table>
+        <% note.metadata.each do |k,v| %>
+          <tr>
+            <td><%= "#{k}" %></td>
+            <td><%= "#{v}" %></td>
+          </tr>
+        <% end %>
+      </table>
+
+      <%= link_to 'Edit', edit_note_path(note), class: 'actions_edit' %>
+      <%= link_to '×', note, method: :delete, data: { confirm: 'Are you sure?' }, class: 'actions_delete' %>
+    </div>
+  <% end %>
 
 </div>

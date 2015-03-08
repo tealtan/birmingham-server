@@ -15,6 +15,12 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+
+    # Prepopulate notebook id if it’s passed as query string
+    if params[:notebook_id]
+      @note.notebooks = Array(Notebook.find(params[:notebook_id]))
+    end
+
   end
 
   # GET /notes/1/edit

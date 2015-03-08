@@ -39,8 +39,8 @@
 <p>
   <strong>Notebooks:</strong>
   <ul>
-    <% @note.notebook_ids.each do |id| %>
-      <li><%= Notebook.find(id).name %></li>
+    <% @note.notebooks.each do |n| %>
+      <li><%= n.name %></li>
     <% end %>
   </ul>
 </p>
