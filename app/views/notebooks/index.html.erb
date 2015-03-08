@@ -1,0 +1,17 @@
+<% content_for :body_class, "notebook_index" %>
+
+<h1>All Notebooks</h1>
+<%= link_to 'New Notebook', new_notebook_path %>
+
+<hr>
+
+<% @notebooks.each do |notebook| %>
+  <div class="notebook <%= notebook.active %>">
+    <span class="name"><%= notebook.name %></span>
+    <span class="description"><%= notebook.description %></span>
+
+    <%= link_to 'Show', notebook, class: 'actions_show' %>
+    <%= link_to 'Edit', edit_notebook_path(notebook), class: 'actions_edit' %>
+    <%= link_to '×', notebook, method: :delete, data: { confirm: 'Are you sure?' }, class: 'actions_delete' %>
+  </div>
+<% end %>

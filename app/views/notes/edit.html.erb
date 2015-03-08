@@ -6,6 +6,12 @@
 
   <hr/>
 
+  <div class="select-notebooks">
+    <%= collection_check_boxes(:note, :notebook_ids, Notebook.all, :id, :name) %>
+  </div>
+
+  <hr/>
+
   <%= label_tag(:archived, "Archived?") %>
   <%= f.check_box(:archived) %> <br/>
 

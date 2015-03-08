@@ -1,0 +1,15 @@
+<h1>New notebook</h1>
+
+<%= form_for @notebook, url: {action: "create"}, html: {class: "notebook_form"} do |f| %>
+
+  <%= f.submit "Save" %> or <%= link_to 'Cancel', notebooks_path %>
+
+  <hr/>
+
+  <%= f.text_field :name, :placeholder => "Name", class: "notebook_name" %> <br/>
+  <%= f.text_field :description, :placeholder => "Description", class: "notebook_description" %> <br/>
+
+  <%= label_tag(:active, "Active?") %>
+  <%= f.check_box :active, :checked => true %>
+
+<% end %>

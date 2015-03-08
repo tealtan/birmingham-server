@@ -129,6 +129,43 @@
     padding-top: 15px;
   }
 
+  .select-notebooks {
+
+    label {
+      display: block;
+      margin-left: 15px;
+      padding: 5px;
+      border-radius: 3px;
+      min-width: 0;
+      text-align: left;
+      text-transform: none;
+      font-size: 12px;
+      -webkit-transition: color 0.2s linear;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    input[type=checkbox] {
+      display: none;
+    }
+
+    input[type=checkbox] + label {
+      color: #999;
+    }
+    input[type=checkbox]:checked + label {
+      color: #FB5F5C;
+
+      &::before {
+        content: '✔';
+        position: absolute;
+        margin-left: -15px;
+      }
+    }
+
+  }
+
   #note_attachment_container {
     display: inline-block;
   }

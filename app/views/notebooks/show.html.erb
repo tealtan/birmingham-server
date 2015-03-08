@@ -1,0 +1,22 @@
+<% content_for :body_class, "notebook_show" %>
+
+<p id="notice"><%= notice %></p>
+
+<%= link_to 'Edit', edit_notebook_path(@notebook) %> or <%= link_to 'Back', notebooks_path %>
+
+<hr>
+
+<div class="notebook">
+  <span class="name"><%= @notebook.name %></span>
+
+  <span>
+    <% if !@notebook.active? %>
+      Inactive
+    <% end %>
+  </span>
+
+  <span class="description"><%= @notebook.description %></span>
+
+  <!-- List notes here -->
+
+</div>

@@ -1,6 +1,8 @@
 require "open-uri"
 
 class Note < ActiveRecord::Base
+  has_and_belongs_to_many :notebooks
+
   before_save :remove_empty
   after_save :update_file_metadata
 

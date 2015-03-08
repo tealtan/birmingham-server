@@ -35,3 +35,12 @@
   <%= @note.file_size %>
 </p>
 <% end %>
+
+<p>
+  <strong>Notebooks:</strong>
+  <ul>
+    <% @note.notebook_ids.each do |id| %>
+      <li><%= Notebook.find(id).name %></li>
+    <% end %>
+  </ul>
+</p>

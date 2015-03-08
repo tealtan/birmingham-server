@@ -1,0 +1,93 @@
+// Place all the styles related to the Notebooks controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.notebook_index {
+
+  .notebook {
+    position: relative;
+
+    & + .notebook {
+      margin-top: 30px;
+    }
+
+    .name {
+      font-size: 32px;
+      line-height: 36px;
+      font-family: Times, Georgia;
+      font-weight: bold;
+    }
+
+    .description {
+      display: block;
+      color: #777;
+    }
+
+    .actions_show {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      text-indent: -9999px;
+    }
+
+    .actions_edit {
+      display: block;
+      position: absolute;
+      top: 15px;
+      right: 55px;
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      opacity: 0;
+      -webkit-transition: opacity 0.3s, right 0.3s, color 0.3s;
+
+      &:hover {
+        right: 50px;
+        opacity: 1;
+      }
+    }
+
+    .actions_delete {
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 5px;
+      width: 50px;
+      height: 50px;
+      opacity: 0;
+      padding-top: 15px;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 18px;
+      -webkit-transition: opacity 0.3s, right 0.3s, color 0.3s;
+
+      &:hover {
+        right: 0px;
+        opacity: 1;
+      }
+    }
+
+  }
+
+}
+
+.notebook_show {
+
+  .name {
+    font-size: 32px;
+    line-height: 36px;
+    font-family: Times, Georgia;
+    font-weight: bold;
+  }
+
+  .description {
+    display: block;
+    color: #777;
+  }
+
+}
