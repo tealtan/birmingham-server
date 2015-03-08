@@ -10,10 +10,10 @@
     <span class="special">
       <% case note.category %>
       <% when "question" %>
-        <span class="prominent"><%= 'Q: ' + note.question %></span>
+        <span class="voicy"><%= 'Q: ' + note.question %></span>
 
       <% when "quote" %>
-        <span class="prominent">“<%= note.quote %>”</span>
+        <span class="voicy">“<%= note.quote %>”</span>
         <span> —<%= note.quote_source %></span>
 
       <% when "place" %>
