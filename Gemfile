@@ -16,6 +16,7 @@ gem 'sass-rails', '~> 4.0.0'
 gem 'autoprefixer-rails'
 gem 'kramdown'
 gem "paperclip", "~> 4.1"
+gem 'aws-sdk', '< 2.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

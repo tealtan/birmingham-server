@@ -8,7 +8,7 @@ class Note < ActiveRecord::Base
 
   # File attachments
   has_attached_file :attachment,
-    :path => "public/attachment/:id/:filename",
+    :path => "uploads/:id/:filename",
     :url => "/attachment/:id/:basename.:extension"
   do_not_validate_attachment_file_type :attachment
 
