@@ -1,3 +1,5 @@
+<% content_for :body_class, "notebook_new" %>
+
 <h1>New notebook</h1>
 
 <%= form_for @notebook, url: {action: "create"}, html: {class: "notebook_form"} do |f| %>

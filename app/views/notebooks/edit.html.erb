@@ -1,3 +1,5 @@
+<% content_for :body_class, "notebook_edit" %>
+
 <%= form_for @notebook, url: {action: "update"}, html: {class: "notebook_form"} do |f| %>
 
   <%= f.submit "Save" %> or <%= link_to 'Cancel', notebooks_path %>
