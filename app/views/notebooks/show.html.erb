@@ -43,7 +43,7 @@
           <span class="url"><%= note.url %></span>
 
         <% when "file" %>
-          <span><%= link_to @note.file_name, @note.file_url %></span>
+          <span><%= link_to note.file_name, note.file_url %></span>
           <span><%= note.file_type %></span>
 
         <% when "book" %>
