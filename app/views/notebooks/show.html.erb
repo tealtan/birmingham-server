@@ -25,7 +25,7 @@
 
   <hr/>
 
-  <% @notebook.notes.each do |note| %>
+  <% @notebook.notes.all.sort_by(&:created_at).reverse.each do |note| %>
     <div class="note <%= note.category %>">
       <span class="special">
         <% case note.category %>
